@@ -1,0 +1,3 @@
+--cpu Cortex-M4.fp.sp -g --apcs=interwork -I ..\Core\Inc -I ../Core/Inc
+--pd "__UVISION_VERSION SETA 537" --pd "STM32F407xx SETA 1"
+--list startup_stm32f407xx.lst --xref -o horizon_infantry\startup_stm32f407xx.o --depend horizon_infantry\startup_stm32f407xx.d "startup_stm32f407xx.s"

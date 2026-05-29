@@ -1,0 +1,22 @@
+horizon_infantry/commontables.o: \
+  ..\Middlewares\CMSIS\DSP\Src\CommonTables\CommonTables.c \
+  ..\Middlewares\CMSIS\DSP\Src\CommonTables\arm_common_tables.c \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_math_types.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Drivers\CMSIS\Include\cmsis_armclang.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\string.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\float.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\limits.h \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_common_tables.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\fast_math_functions.h \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_math_memory.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\none.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\utils.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\basic_math_functions.h \
+  ..\Middlewares\CMSIS\DSP\Src\CommonTables\arm_const_structs.c \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_const_structs.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\transform_functions.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\complex_math_functions.h \
+  ..\Middlewares\CMSIS\DSP\Src\CommonTables\arm_mve_tables.c

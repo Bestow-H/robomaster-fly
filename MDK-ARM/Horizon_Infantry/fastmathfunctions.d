@@ -1,0 +1,36 @@
+horizon_infantry/fastmathfunctions.o: \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\FastMathFunctions.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_cos_f32.c \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\fast_math_functions.h \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_math_types.h \
+  ..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Drivers\CMSIS\Include\cmsis_armclang.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\string.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\float.h \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\limits.h \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_math_memory.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\none.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\utils.h \
+  ..\Middlewares\CMSIS\DSP\Inc\dsp\basic_math_functions.h \
+  ..\Middlewares\CMSIS\DSP\Inc\arm_common_tables.h \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_cos_q15.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_cos_q31.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_sin_f32.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_sin_q15.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_sin_q31.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_sqrt_q31.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_sqrt_q15.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_vexp_f32.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_vexp_f64.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_vlog_f32.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_vlog_f64.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_divide_q15.c \
+  D:\kevil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_divide_q31.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_vlog_q31.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_vlog_q15.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_atan2_f32.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_atan2_q31.c \
+  ..\Middlewares\CMSIS\DSP\Src\FastMathFunctions\arm_atan2_q15.c
