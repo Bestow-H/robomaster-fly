@@ -9,7 +9,12 @@ extern VisionRxDataUnion VisionRxDataTemp;
 float pitch_F;
 uint32_t test1=1,test2=1;//测试程序执行时间
 uint8_t lock=0;
-
+uint8_t LK_state=0;
+float buchang=0;
+float dansuerror=0;
+float dansuqiwang=23;
+float dansuoutput=0;
+float kp=0.6;
 /************************************************************万能分隔符**************************************************************
  * 	@author:			//小瑞
  *	@performance:	    //头部PID+前馈总初始化函数
@@ -28,13 +33,13 @@ float PID_P_Yaw_2_zimiao[3] = {  1.8,   0.3f,   0.0f };
 float PID_P_Yaw_1_zimiao[3] = {  2.3,   0.4f,   0.0f };
 
 float PID_P_Yaw_shou[3] = {  2.0,   0.003f,   0.0f };
-float PID_S_Yaw_shou[3] = {  0.162,   0.0f,   0.0f   }; 
+float PID_S_Yaw_shou[3] = {  0.165,   0.0f,   0.0f   }; 
 			
 float PID_P_Pitch_shou[3] = {   1.3,   0.01f,   0   };
 float PID_S_Pitch_shou[3] = {   1.31,   0.0f,   0  }; 
 
 float PID_P_Yaw_zimiao[3] = {  2.0,   0.003f,   0.0f };
-float PID_S_Yaw_zimiao[3] = {  0.162,   0.0f,   0.0f   };
+float PID_S_Yaw_zimiao[3] = {  0.165,   0.0f,   0.0f   };
 
 float PID_P_Pitch_zimiao[3] = {   1.3,   0.03f,   0   };
 float PID_S_Pitch_zimiao[3] = {   1.31,   0.0f,   0   };
@@ -308,21 +313,36 @@ if(vt13_state_gimbal==2)
 //-(float)MOTOR->DJI_3508_Shoot_R.DATA.current);//9
 pitch_F=0.48252*cos(IMU->pitch*0.017453)/0.07/33*2048;
 
-
+if(VT13_DBUS.Remote.mode_sw==2)
+{
+  dansuerror=dansuqiwang*100-(float)User_data.shoot_data.initial_speed*100;
+  dansuoutput=kp*dansuerror;
+  RUI_F_MATH_Limit_float(150,-150,dansuoutput);
+}
+else{dansuoutput=0;}
   if(VT13_DBUS.Remote.mode_sw==0)
 	{   
+		if(VT13_DBUS.Remote.fn_1==1)
+		{
+		  LKMF_motor_run(&hcan1, 2);
+			LKMF_clear_error(&hcan1, 2);
+		}
+		else
+    {
+		  
 		  LKMF_iq_ctrl(&hcan1,2,00);
 		  DJI_Current_Ctrl(&hcan2,0x4fe,0,0,0,0);
+		  
 		  DJI_Current_Ctrl(&hcan1,0x200,0,0,0,0);
-		
+		}
 	}
 	else
 	{
 		if(IMU->attitude_flag==2)
 		{
-	  DJI_Current_Ctrl(&hcan1,0x200, 0,MOTOR->DJI_3508_Shoot_L.PID_S.Output,  
+	  DJI_Current_Ctrl(&hcan1,0x200, 0,MOTOR->DJI_3508_Shoot_L.PID_S.Output-dansuoutput,  
 				                            MOTOR->DJI_3508_Shoot_M.PID_S.Output  ,
-				                                MOTOR->DJI_3508_Shoot_R.PID_S.Output);
+				                                MOTOR->DJI_3508_Shoot_R.PID_S.Output+dansuoutput);
 		DJI_Current_Ctrl(&hcan2,0x4fe,-(int16_t)MOTOR->DJI_6020_Yaw.PID_S.Output-VisionRxDataTemp.Yaw_plan*0,0,0,0);
 		LKMF_iq_ctrl(&hcan1,2,-MOTOR->DJI_6020_Pitch.PID_S.Output-VisionRxDataTemp.Pitch_plan*0);
 		}
@@ -334,11 +354,39 @@ pitch_F=0.48252*cos(IMU->pitch*0.017453)/0.07/33*2048;
 		}
 		
 	}
+
+
+	
+//	switch(LK_state)
+//{
+//		case 0:
+//			LKMF_motor_run(&hcan1, 2);
+//			break;
+//	  case 1:
+//			LKMF_clear_error(&hcan1, 2);
+//			break;
+//	  case 2:
+//			LKMF_motor_stop(&hcan1, 2);
+//			break;
+//		default:
+//			LKMF_motor_run(&hcan1, 2);
+//		  break;
+//	}
+//	
+	
+	
+	
+	
+	
+	
+	
+	
 //  if(Root->RM_DBUS)
 //{
 //	{if(WHW_V_DBUS.Remote.S2_u8==1)
 //		{ 
 //			LKMF_iq_ctrl(&hcan1,2,00);
+
 //		  DJI_Current_Ctrl(&hcan2,0x4fe,0,0,0,0);
 //			if(WHW_V_DBUS.Remote.S1_u8==2)
 //			{
@@ -369,7 +417,7 @@ pitch_F=0.48252*cos(IMU->pitch*0.017453)/0.07/33*2048;
 //		}
 //	}
 //}
-    if(test1!=1&&lock==0)
-	 {test2=DWT_GetTimeline_us();lock=1;}
+//    if(test1!=1&&lock==0)
+//	 {test2=DWT_GetTimeline_us();lock=1;}
     return RUI_DF_READY;
 }

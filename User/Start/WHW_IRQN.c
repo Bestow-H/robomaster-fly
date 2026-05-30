@@ -414,7 +414,7 @@ void BSP_UART_IRQHandler(UART_HandleTypeDef *huart)
 //	
 //}
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size){
- uint8_t *pData = huart->pRxBuffPtr;
+ //uint8_t *pData = huart->pRxBuffPtr;
 	if (huart->Instance == USART1){
         if (Size == 21){
             VT13_Resovled(VT13_RX_DATA , &VT13_DBUS,&VT13_UNION);
@@ -422,8 +422,8 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size){
 				online_status.RM_DBUS=0;
     }
 	if (huart->Instance == USART6){
-        uint8_t *next_buf = (pData == Referee_Rx_Buf[0]) ? Referee_Rx_Buf[1] : Referee_Rx_Buf[0];
-        HAL_UARTEx_ReceiveToIdle_DMA(huart, next_buf, REFEREE_RXFRAME_LENGTH);
-        Referee_System_Frame_Update(pData,Size);
+        Referee_System_Frame_Update(Referee_Rx_Buf, 256);
+				HAL_UARTEx_ReceiveToIdle_DMA(&huart6, Referee_Rx_Buf, REFEREE_RXFRAME_LENGTH);//裁判系统串口
+        __HAL_DMA_DISABLE_IT(huart->hdmarx, DMA_IT_HT);
     }
 }

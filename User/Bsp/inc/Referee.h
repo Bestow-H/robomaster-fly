@@ -367,7 +367,7 @@ typedef union
 
 } ALL_RX_Data_T;
 
-extern uint8_t Referee_Rx_Buf[2][REFEREE_RXFRAME_LENGTH];
+extern uint8_t Referee_Rx_Buf[REFEREE_RXFRAME_LENGTH];
 extern User_Data_T User_data;
 
 void Referee_System_Frame_Update(uint8_t *Buff, uint16_t Size);

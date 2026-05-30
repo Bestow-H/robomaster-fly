@@ -43,7 +43,7 @@ VT13_Typedef VT13_DBUS={0};
 //裁判系统相关变量
 ALL_RX_Data_T ALL_RX;
 User_Data_T User_data;
-uint8_t Referee_Rx_Buf[2][REFEREE_RXFRAME_LENGTH];
+uint8_t Referee_Rx_Buf[REFEREE_RXFRAME_LENGTH];
 
 //测试
 uint8_t RX[20];
@@ -107,13 +107,13 @@ void Everying_Init(void)
 	__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);//遥控串口
     HAL_UART_Receive_DMA(&huart3,(uint8_t *)DBUS_RX_DATA,37);
 
-    HAL_DMA_DeInit(&hdma_usart6_rx);
-    HAL_DMA_DeInit(&hdma_usart6_tx);
-    HAL_DMA_Init(&hdma_usart6_rx);
-    HAL_DMA_Init(&hdma_usart6_tx);
-    HAL_UART_DMAStop(&huart6);
+//    HAL_DMA_DeInit(&hdma_usart6_rx);
+//    HAL_DMA_DeInit(&hdma_usart6_tx);
+//    HAL_DMA_Init(&hdma_usart6_rx);
+//    HAL_DMA_Init(&hdma_usart6_tx);
+//    HAL_UART_DMAStop(&huart6);
   //  HAL_UART_Receive_DMA(&huart6,(uint8_t *)ALL_RX.Data,255);
-    HAL_UARTEx_ReceiveToIdle_DMA(&huart6,Referee_Rx_Buf[0],REFEREE_RXFRAME_LENGTH);
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart6,Referee_Rx_Buf,REFEREE_RXFRAME_LENGTH);
 		__HAL_DMA_DISABLE_IT(huart6.hdmarx, DMA_IT_HT);//关闭 DMA 半传中断
 
 	//USB初始化
