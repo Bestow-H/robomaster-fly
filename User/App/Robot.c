@@ -143,18 +143,18 @@ void RobotTask(uint8_t mode,
 						}
 						
 						
-						   if(vt13_state_gimbal==2||VT13_DBUS.Mouse.R_State==2)
+						   if(vt13_state_gimbal==2||VT13_DBUS.Mouse.R_State==2||VT13_DBUS.Mouse.R_State==1)
 						 {	 
 							 if(VisionRxDataTemp.Target==1&&VisionRxDataTemp.offlinetime<=900)
 							 {                all_ui.aim_stutas=20;
-                                CONTAL->HEAD.Pitch = VisionRxDataTemp.PitchAngle *pitchvison-(float) (VT13_DBUS.Remote.Channel[3]) * 0.001f;
+                                CONTAL->HEAD.Pitch = VisionRxDataTemp.PitchAngle *pitchvison-(float) (VT13_DBUS.Remote.Channel[3]) * 0.03f-VT13_DBUS.Mouse.Y_Flt*0.001;
 								            
 																CONTAL->HEAD.Pitch = RUI_F_MATH_Limit_float(CONTAL->HEAD.Pitch_MAX,
                                                                             CONTAL->HEAD.Pitch_MIN,
                                                                             CONTAL->HEAD.Pitch);
 								                
 
-                                CONTAL->HEAD.Yaw = VisionRxDataTemp.YawAngle *yawvison-(float) (VT13_DBUS.Remote.Channel[2]) * 0.001f;
+                                CONTAL->HEAD.Yaw = VisionRxDataTemp.YawAngle *yawvison-(float) (VT13_DBUS.Remote.Channel[2]) * 0.03f+VT13_DBUS.Mouse.X_Flt*0.007;
 								    
                                 CONTAL->HEAD.Yaw= RUI_F_MATH_Limit_float(b+900,b-1800,CONTAL->HEAD.Yaw);
                            

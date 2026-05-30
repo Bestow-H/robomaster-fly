@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Horizon_Infantry\Horizon_Infantry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Horizon_Infantry\Horizon_Infantry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sat May 30 17:18:07 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sun May 31 02:15:06 2026
 <BR><P>
 <H3>Maximum Stack Usage =        376 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1987,16 +1987,14 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Everying_Init
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Everying_Init
 </UL>
 
-<P><STRONG><a name="[16e]"></a>HAL_UARTEx_RxEventCallback</STRONG> (Thumb, 130 bytes, Stack size 16 bytes, whw_irqn.o(.text.HAL_UARTEx_RxEventCallback))
+<P><STRONG><a name="[16e]"></a>HAL_UARTEx_RxEventCallback</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, whw_irqn.o(.text.HAL_UARTEx_RxEventCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_UARTEx_RxEventCallback &rArr; VT13_Resovled
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VT13_Resovled
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Referee_System_Frame_Update
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_ReceiveToIdle_DMA
 </UL>
 <BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
@@ -2045,7 +2043,7 @@ Global Symbols
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 </UL>
 
-<P><STRONG><a name="[176]"></a>HAL_UART_MspInit</STRONG> (Thumb, 726 bytes, Stack size 64 bytes, usart.o(.text.HAL_UART_MspInit))
+<P><STRONG><a name="[176]"></a>HAL_UART_MspInit</STRONG> (Thumb, 730 bytes, Stack size 64 bytes, usart.o(.text.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -2767,7 +2765,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 </UL>
 
-<P><STRONG><a name="[1c9]"></a>RobotTask</STRONG> (Thumb, 3220 bytes, Stack size 80 bytes, robot.o(.text.RobotTask))
+<P><STRONG><a name="[1c9]"></a>RobotTask</STRONG> (Thumb, 3340 bytes, Stack size 80 bytes, robot.o(.text.RobotTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = RobotTask &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_sin_f32

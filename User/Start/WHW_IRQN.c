@@ -423,7 +423,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size){
     }
 	if (huart->Instance == USART6){
         Referee_System_Frame_Update(Referee_Rx_Buf, 256);
-				HAL_UARTEx_ReceiveToIdle_DMA(&huart6, Referee_Rx_Buf, REFEREE_RXFRAME_LENGTH);//裁判系统串口
+				//HAL_UARTEx_ReceiveToIdle_DMA(&huart6, Referee_Rx_Buf, REFEREE_RXFRAME_LENGTH);//裁判系统串口
         __HAL_DMA_DISABLE_IT(huart->hdmarx, DMA_IT_HT);
     }
 }

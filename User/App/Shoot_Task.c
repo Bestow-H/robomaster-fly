@@ -105,7 +105,7 @@ uint8_t MOTOR_PID_Shoot_INIT(MOTOR_Typdef *MOTOR)
              0.7f, 0.2f, 2,
              Integral_Limit|OutputFilter|ErrorHandle//积分限幅,输出滤波,堵转监测
              |DerivativeFilter&00000000);//微分先行,微分滤波器
-    PID_Init(&MOTOR->DJI_3508_Shoot_M.PID_S, 15000.0f, 2000.0f,
+    PID_Init(&MOTOR->DJI_3508_Shoot_M.PID_S, 10000.0f, 2000.0f,
              PID_S_M, 1000.0f, 1000.0f,
              0, 0, 0,
              Integral_Limit|OutputFilter|ErrorHandle//积分限幅,输出滤波,堵转监测
